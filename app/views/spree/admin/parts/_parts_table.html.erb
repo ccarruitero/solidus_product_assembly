@@ -18,15 +18,16 @@
         <td><%= text_field_tag :count, @product.count_of(part) %></td>
   	    <td class="actions">
           <%= link_to_with_icon(
-            'edit',
-            t('spree.actions.edit'),
+            "check",
+            t("spree.actions.save"),
             set_count_admin_product_part_url(@product, part),
-            :class => "set_count_admin_product_part_link save-line-item") %>
+            no_text: true,
+            class: "set_count_admin_product_part_link save-line-item") %>
 
-          <%= link_to_with_icon(
-            'delete',
-            t('spree.actions.delete'),
-            remove_admin_product_part_url(@product, part),
+          <%= link_to_delete(
+            part,
+            no_text: true,
+            url: remove_admin_product_part_url(@product, part),
             class: "remove_admin_product_part_link delete-line-item") %>
   	    </td>
       </tr>
